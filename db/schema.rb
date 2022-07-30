@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_29_185140) do
+ActiveRecord::Schema.define(version: 2022_07_30_004639) do
 
   create_table "chef_comments", force: :cascade do |t|
     t.text "comment"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_07_29_185140) do
     t.float "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "chef_price"
   end
 
   create_table "cuisine_posts", force: :cascade do |t|
