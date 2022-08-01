@@ -11,14 +11,15 @@ class ApplicationController < Sinatra::Base
   post "/login" do
     User.find_by()
   end
-  get "/chef/profile" do
-    
+  get "/chefs" do
+    Chef.all.to_json
   end
   get "/user/home/:id" do
-    lat_range_upper = User.find(params[:id]).{latitude_upper:latitude+.05,longitude_upper:longitude+.05,
-        latitude_lower:latitude-.05,longitude_lower:longitude-.05}
+    # lat_range_upper = Chef.find(params[:id]).{latitude_upper:latitude+.05,longitude_upper:longitude+.05,
+    #     latitude_lower:latitude-.05,longitude_lower:longitude-.05}
 
-    Chef.where("longitude > ? and latitude",)
+    User.find(params[:id]).to_json
+    # Chef.where("longitude > ? and latitude",)
   end
   get "/user/profile" do
     
