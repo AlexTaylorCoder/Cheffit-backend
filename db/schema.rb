@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2022_07_30_004639) do
   end
 
   create_table "chefs", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
@@ -76,6 +78,8 @@ ActiveRecord::Schema.define(version: 2022_07_30_004639) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
