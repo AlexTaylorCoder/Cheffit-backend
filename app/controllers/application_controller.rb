@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
     email = params(:email)
     longitude = params(:longitude)
     latitude = params(:latitude)
-    user= User.create(username:username, password:password, first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
+    user= User.create(username:username, password:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
     {
       sucess:true,
       data: user
@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
     email = params(:email)
     longitude = params(:longitude)
     latitude = params(:latitude)
-    user= Chef.create(username:username, password:password, first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
+    user= Chef.create(username:username, password:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
     {
       sucess:true,
       data: user
@@ -41,8 +41,8 @@ class ApplicationController < Sinatra::Base
     password = params(:password)
 
     begin
-      user= User.where(username:username, password:password).first
-      if !user
+      user= User.where(username:username).first
+      if !user || user.password != password 
         {
           sucess: false,
           errorMessage: "Invalid username/password"
@@ -65,8 +65,8 @@ class ApplicationController < Sinatra::Base
     password = params(:password)
 
     begin
-      user= Chef.where(username:username, password:password).first
-      if !user
+      user= Chef.where(username:username).first
+      if !user || user.password != password 
         {
           sucess: false,
           errorMessage: "Invalid username/password"
