@@ -107,4 +107,12 @@ class ApplicationController < Sinatra::Base
 
   end
 
+  get "/chef/requests" do
+    Chef.second.requests.to_json
+  end
+
+  get "/chef/info" do
+    Chef.third.to_json
+  end
+
 end
