@@ -5,15 +5,15 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   post "/user/createaccount" do
-    username = params(:username)
-    password = params(:password)
-    first_name = params(:first_name)
-    last_name = params(:last_name)
-    phone = params(:phone)
-    prof_pic = params(:prof_pic)
-    email = params(:email)
-    longitude = params(:longitude)
-    latitude = params(:latitude)
+    username = params[:username]
+    password = params[:password]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    phone = params[:phone]
+    prof_pic = params[:prof_pic]
+    email = params[:email]
+    longitude = params[:longitude]
+    latitude = params[:latitude]
     user= User.create(username:username, password:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
     {
       sucess:true,
@@ -21,15 +21,15 @@ class ApplicationController < Sinatra::Base
     }.to_json
   end
   post "/chef/createaccount" do
-    username = params(:username)
-    password = params(:password)
-    first_name = params(:first_name)
-    last_name = params(:last_name)
-    phone = params(:phone)
-    prof_pic = params(:prof_pic)
-    email = params(:email)
-    longitude = params(:longitude)
-    latitude = params(:latitude)
+    username = params[:username]
+    password = params[:password]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    phone = params[:phone]
+    prof_pic = params[:prof_pic]
+    email = params[:email]
+    longitude = params[:longitude]
+    latitude = params[:latitude]
     user= Chef.create(username:username, password:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
     {
       sucess:true,
@@ -37,8 +37,8 @@ class ApplicationController < Sinatra::Base
     }.to_json
   end
   post "/user/login" do
-    username = params(:username)
-    password = params(:password)
+    username = params[:username]
+    password = params[:password]
 
     begin
       user= User.where(username:username).first
@@ -61,8 +61,8 @@ class ApplicationController < Sinatra::Base
       end
   end
   post "/chef/login" do
-    username = params(:username)
-    password = params(:password)
+    username = params[:username]
+    password = params[:password]
 
     begin
       user= Chef.where(username:username).first
