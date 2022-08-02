@@ -10,7 +10,7 @@ def password
     @password ||= Password.new(password)
 end
 
-def as_json()(options={})
+def as_json(options={})
     super(options.merge({except: [:password]}))
 end
 
