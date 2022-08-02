@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
 include BCrypt
 
 def password
-    @password ||= Password.new(password)
+    @password ||= Password.new(password_hash)
 end
 
 def as_json(options={})
-    super(options.merge({except: [:password]}))
+    super(options.merge({ except: [:password_hash]}))
 end
 
 end
