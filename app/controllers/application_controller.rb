@@ -107,7 +107,7 @@ class ApplicationController < Sinatra::Base
 
   get "/chef/requests/:id" do
     chef_requests = Chef.find(params[:id]).requests
-    # chef_requests[:avg] = avg
+    # chef_requests[:avg] = chef_requests.average(user: {user: rating})
     chef_requests.to_json(include: {user: {include: :user_comments} })
   end
 
