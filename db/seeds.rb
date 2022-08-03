@@ -11,7 +11,7 @@ CHEF_COMMENT_ITER = 10
 USER_COMMENT_ITER = 10
 CHEF_ITER.times do
     chef = Chef.create(username:Faker::Internet.username(specifier:5..10), password_hash:Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_characters: true), first_name: Faker::Name.first_name,last_name: Faker::Name.last_name,phone:Faker::PhoneNumber.cell_phone,
-        email:Faker::Internet.email,longitude:LONG+rand(0.000001...0.00009),
+        email:Faker::Internet.email, bio:Faker::Lorem.paragraph(sentence_count: 3),longitude:LONG+rand(0.000001...0.00009),
         latitude:LAT+rand(0.00001...0.00009),chef_price:rand(200))
     end
 USER_ITER.times do

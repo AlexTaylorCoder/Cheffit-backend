@@ -7,6 +7,7 @@ class CreateChefs < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.string :phone
       t.string :prof_pic
+      t.text   :bio
       t.string :email
       t.float :longitude
       t.float :latitude

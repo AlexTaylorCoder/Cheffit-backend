@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_07_30_004639) do
     t.string "last_name"
     t.string "phone"
     t.string "prof_pic"
+    t.text "bio"
     t.string "email"
     t.float "longitude"
     t.float "latitude"
