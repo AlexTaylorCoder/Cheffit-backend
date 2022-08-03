@@ -5,81 +5,81 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   post "/user/createaccount" do
-    username = params(:username)
-    password = params(:password)
-    first_name = params(:first_name)
-    last_name = params(:last_name)
-    phone = params(:phone)
-    prof_pic = params(:prof_pic)
-    email = params(:email)
-    longitude = params(:longitude)
-    latitude = params(:latitude)
-    user= User.create(username:username, password:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
+    username = params[:username]
+    password = params[:password]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    phone = params[:phone]
+    prof_pic = params[:prof_pic]
+    email = params[:email]
+    longitude = params[:longitude]
+    latitude = params[:latitude]
+
+    user = User.create(username:username, password_hash:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
     {
-      sucess:true,
+      success:true,
       data: user
     }.to_json
   end
+
   post "/chef/createaccount" do
-    username = params(:username)
-    password = params(:password)
-    first_name = params(:first_name)
-    last_name = params(:last_name)
-    phone = params(:phone)
-    prof_pic = params(:prof_pic)
-    email = params(:email)
-    longitude = params(:longitude)
-    latitude = params(:latitude)
-    user= Chef.create(username:username, password:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
+    username = params[:username]
+    password = params[:password]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    phone = params[:phone]
+    prof_pic = params[:prof_pic]
+    email = params[:email]
+    longitude = params[:longitude]
+    latitude = params[:latitude]
+    chef= Chef.create(username:username, password_hash:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
     {
-      sucess:true,
-      data: user
+      success:true,
+      data: chef
     }.to_json
   end
   post "/user/login" do
-    username = params(:username)
-    password = params(:password)
-
+    username = params[:username]
+    password = params[:password]
     begin
       user= User.where(username:username).first
       if !user || user.password != password 
         {
-          sucess: false,
+          success: false,
           errorMessage: "Invalid username/password"
         }.to_json
       else
         {
-          sucess:true,
+          success:true,
           data:user
         }.to_json
       end
     rescue
         {
-          sucess:false,
+          success:false,
           errorMessage:"Unknown error occured"
         }.to_json
       end
   end
   post "/chef/login" do
-    username = params(:username)
-    password = params(:password)
-
+    username = params[:username]
+    password = params[:password]
     begin
-      user= Chef.where(username:username).first
-      if !user || user.password != password 
+      chef= Chef.where(username:username).first
+      if !chef || chef.password != password 
         {
-          sucess: false,
+          success: false,
           errorMessage: "Invalid username/password"
         }.to_json
       else
         {
-          sucess:true,
-          data:user
+          success: true,
+          data: chef
         }.to_json
       end
     rescue
         {
-          sucess:false,
+          success: false,
           errorMessage:"Unknown error occured"
         }.to_json
       end
