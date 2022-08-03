@@ -104,8 +104,8 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  get "/chef/requests" do
-    Chef.second.requests.to_json
+  get "/chef/requests/:id" do
+    Chef.find(params[:id]).requests.to_json(:include => :user)
   end
 
   get "/chef/info" do
