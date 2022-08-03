@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
     longitude = params[:longitude]
     latitude = params[:latitude]
 
-    user = User.create(username:username, password_hash:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
+    user = User.create(username:username, password_hash:BCrypt::Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
     {
       success:true,
       data: user
@@ -29,10 +29,11 @@ class ApplicationController < Sinatra::Base
     last_name = params[:last_name]
     phone = params[:phone]
     prof_pic = params[:prof_pic]
+    bio = params[:bio]
     email = params[:email]
     longitude = params[:longitude]
     latitude = params[:latitude]
-    chef= Chef.create(username:username, password_hash:Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, email:email,longitude:longitude, latitude:latitude)
+    chef= Chef.create(username:username, password_hash:BCrypt::Password.create(password), first_name:first_name, last_name:last_name, phone:phone, prof_pic:prof_pic, bio:bio, email:email,longitude:longitude, latitude:latitude)
     {
       success:true,
       data: chef
