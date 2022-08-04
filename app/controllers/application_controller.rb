@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
       data: chef
     }.to_json
   end
-  post "/user/login" do
+  get "/customer/login" do
     username = params[:username]
     password = params[:password]
     begin
@@ -62,7 +62,7 @@ class ApplicationController < Sinatra::Base
         }.to_json
       end
   end
-  post "/chef/login" do
+  get "/chef/login" do
     username = params[:username]
     password = params[:password]
     begin
@@ -75,7 +75,7 @@ class ApplicationController < Sinatra::Base
       else
         {
           success: true,
-          data: chef
+          data:chef
         }.to_json
       end
     rescue
@@ -125,6 +125,12 @@ class ApplicationController < Sinatra::Base
   end
   post "/request" do
     Request.create(request_date:params[:datetime],status:"pending").to_json
+  end
+
+  get "/user/requests/:id" do
+    user_requests = User.find(params[:id]).requests
+    # chef_requests[:avg] = chef_requests.average(user: {user: rating})
+    user_requests.to_json(include: {chef: {include: :chef_comments} })
   end
 
 end
