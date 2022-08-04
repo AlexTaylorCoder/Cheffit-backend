@@ -86,7 +86,10 @@ class ApplicationController < Sinatra::Base
       end
   end
   get "/chefs" do
-    Chef.all.to_json
+    # Chef.all.each do |chef|
+    #     print chef.avg_rating
+    # end
+    Chef.all.to_json(:include => :cuisines, :methods => :avg_rating)
   end
   get "/user/home/:id" do
     # lat_range_upper = Chef.find(params[:id]).{latitude_upper:latitude+.05,longitude_upper:longitude+.05,
@@ -107,7 +110,6 @@ class ApplicationController < Sinatra::Base
 
   get "/chef/requests/:id" do
     chef_requests = Chef.find(params[:id]).requests
-    # chef_requests[:avg] = chef_requests.average(user: {user: rating})
     chef_requests.to_json(include: {user: {include: :user_comments} })
   end
 
@@ -115,7 +117,14 @@ class ApplicationController < Sinatra::Base
     Chef.third.to_json
   end
   get "/chef/:id" do
-    Chef.find(params[:id]).to_json
+    sendChef = Chef.find(params[:id])
+    sendChef.to_json(:include => :cuisines)
+  end
+  get "/request/:id" do
+    User.find(params[:id]).requests.all.to_json
+  end
+  post "/request" do
+    Request.create(request_date:params[:datetime],status:"pending").to_json
   end
 
 end

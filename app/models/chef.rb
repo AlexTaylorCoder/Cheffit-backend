@@ -16,4 +16,7 @@ def as_json(options={})
     super(options.merge({except: [:password_hash]}))
 end
 
+def avg_rating
+    self.chef_comments.average(:rating)
+end
 end
