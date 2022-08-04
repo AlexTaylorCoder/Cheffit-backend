@@ -133,4 +133,15 @@ class ApplicationController < Sinatra::Base
     user_requests.to_json(include: {chef: {include: :chef_comments} })
   end
 
+  get "/posts/:id" do 
+    Chef.find(params[:id]).chef_posts.to_json
+  end
+  post "/posts/:id" do
+    Post.create(dish_name:params[:dishName],image:params[:imgLink],chef:params[:id]).to_json
+  end
+  delete "/posts/:id" do
+    targetPost = ChefPost.find(params[:id])
+    targetPost.delete.to_json
+  end
+
 end
