@@ -2,7 +2,34 @@ puts "🌱 Seeding spices..."
 
 Chef.create(username:"ironchef"password_hash:"123",first_name:"Bobby",
     last_name:"Flay",phone:"917-456-3421",email:"bobby@gmail.com",
-    bio:"I am the iron chef, built to destroy",)
+    bio:"I am the iron chef, built to destroy", longitude: 40.7, latitude: -73.9, prof_pic:'https://www.biography.com/.image/t_share/MTgwNDM1NDcwMDI5Njk0MTAy/gettyimages-828680820.jpg')
+
+Chef.create(username:"cook4life"password_hash:"123",first_name:"Sean",
+    last_name:"Booker",phone:"917-456-3421",email:"bobby@gmail.com",
+    bio:"Let's make your next event special",longitude: 40.73, latitude: -73.99, prof_pic:'https://img.freepik.com/free-photo/handsome-confident-smiling-man-with-hands-crossed-chest_176420-18743.jpg?w=2000')
+
+Chef.create(username:"fivestars"password_hash:"123",first_name:"Willie",
+    last_name:"Chen",phone:"917-456-3421",email:"bobby@gmail.com",
+    bio:"Book me for your next event!",longitude: 40.88, latitude: -73.85, prof_pic:'https://media.istockphoto.com/photos/smiling-indian-man-looking-at-camera-picture-id1270067126?k=20&m=1270067126&s=612x612&w=0&h=ZMo10u07vCX6EWJbVp27c7jnnXM2z-VXLd-4maGePqc=')
+
+ Chef.create(username:"cuisineking"password_hash:"123",first_name:"Alex",
+    last_name:"Taylor",phone:"917-456-3421",email:"bobby@gmail.com",
+    bio:"I make the best food!",longitude: 40.81, latitude: -73.56, prof_pic:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8&w=1000&q=80')
+
+Chef.create(username:"chefify"password_hash:"123",first_name:"Joe",
+    last_name:"Hirotsu",phone:"917-456-3421",email:"jhirotsu@gmail.com",
+    bio:"The best cook. Period!",longitude: 40.76, latitude: -74.29, prof_pic:'https://ca.slack-edge.com/T02MD9XTF-U03FVKLQZNW-80ec6c23d028-512')
+
+Cuisine.create(name: Mexican, chef_id:1)    
+
+Cuisine.create(name: Italian, chef_id:2)   
+
+Cuisine.create(name: Japanese, chef_id:3)  
+
+Cuisine.create(name: American, chef_id:4)  
+
+Cuisine.create(name: Chinese, chef_id:5) 
+
 # LAT = 40.685253
 # LONG = -73.963962
 
