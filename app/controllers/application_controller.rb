@@ -91,6 +91,9 @@ class ApplicationController < Sinatra::Base
     # end
     Chef.all.to_json(:include => :cuisines, :methods => :avg_rating)
   end
+  get "/cuisines/:id" do
+    Chef.find(params[:id]).cuisines.to_json
+  end
   get "/user/home/:id" do
     # lat_range_upper = Chef.find(params[:id]).{latitude_upper:latitude+.05,longitude_upper:longitude+.05,
     #     latitude_lower:latitude-.05,longitude_lower:longitude-.05}
@@ -137,7 +140,7 @@ class ApplicationController < Sinatra::Base
     Chef.find(params[:id]).chef_posts.to_json
   end
   post "/posts/:id" do
-    Post.create(dish_name:params[:dishName],image:params[:imgLink],chef:params[:id]).to_json
+    ChefPost.create(dish_name:params[:dishName],image:params[:imgLink],chef_id:params[:id]).to_json
   end
   delete "/posts/:id" do
     targetPost = ChefPost.find(params[:id])
