@@ -101,10 +101,21 @@ class ApplicationController < Sinatra::Base
     User.find(params[:id]).to_json
     # Chef.where("longitude > ? and latitude",)
   end
-  patch "/chef/editprofile" do
+  patch "/chef/editprofile/:id" do
+    findchef = Chef.find(params[:id])
+
+    findchef.update(params)
+
+    findchef.to_json
 
   end
-  patch "/user/editprofile" do
+
+  patch "/user/editprofile/:id" do
+    finduser = User.find(params[:id])
+
+    finduser.update(params)
+
+    finduser.to_json
 
   end
   delete "/chef/post" do
