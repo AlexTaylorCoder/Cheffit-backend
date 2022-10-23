@@ -4,5 +4,5 @@ This project looks to bring the convience of a chef to your household. Search fo
 
 Built with Sinatra and React. Secure encryption.
 
-Link to front-end: https://github.com/wshi9124/ChefIt
-Link to back-end: https://github.com/AlexTaylorCoder/phase-3-sinatra-react-project/
+<p>Link to front-end: https://github.com/wshi9124/ChefIt</p>
+<p>Link to back-end: https://github.com/AlexTaylorCoder/phase-3-sinatra-react-project/ </p>
