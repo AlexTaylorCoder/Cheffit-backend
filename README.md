@@ -6,3 +6,5 @@ Built with Sinatra and React. Secure encryption.
 
 <p>Link to front-end: https://github.com/wshi9124/ChefIt</p>
 <p>Link to back-end: https://github.com/AlexTaylorCoder/phase-3-sinatra-react-project/ </p>
+
+https://loom.com/share/6923c11427774383a77303357d7d2647
