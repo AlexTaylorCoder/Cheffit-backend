@@ -1,8 +1,9 @@
 <h2> Run Cheffit </h2>
   <ol>
     <li> Download front-end and back-end </li>
-    <li> npm start front-end </li>
-    <li> rails s back-end </li>
+    <li> Navigate to front-end and back-end </li>
+    <li> npm start (inside front-end root directory) </li>
+    <li> rails s (inside back-end root directory) </li>
   </ol>
 
 <p>Link to front-end: https://github.com/wshi9124/ChefIt</p>
